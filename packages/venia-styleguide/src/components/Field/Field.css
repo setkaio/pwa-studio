@@ -1,0 +1,9 @@
+.root {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.label {
+    font-weight: var(--venia-global-text-fontWeight-semibold);
+    padding: 0 2px;
+}
