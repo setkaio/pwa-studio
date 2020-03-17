@@ -34,6 +34,13 @@ class BuildBus extends Trackable {
         this._hasRun = {};
         this.context = context;
         this.targetProviders = new Map();
+        this._getEnvOverrides();
+    }
+    _getEnvOverrides() {
+        const envDepsAdditional = process.env.BUILDBUS_DEPS_ADDITIONAL;
+        this._depsAdditional = envDepsAdditional
+            ? envDepsAdditional.split(',')
+            : [];
     }
     getTargetsOf(depName) {
         return this._getTargets(depName).own;
