@@ -7,6 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const PWADevServer = require('../WebpackTools/PWADevServer');
 const RootComponentsPlugin = require('../WebpackTools/plugins/RootComponentsPlugin');
 const UpwardIncludePlugin = require('../WebpackTools/plugins/UpwardIncludePlugin');
+const WrapLoaderConfig = require('../WebpackTools/WrapLoaderConfig');
 
 function isDevServer() {
     return process.argv.find(v => v.includes('webpack-dev-server'));
@@ -21,8 +22,11 @@ module.exports = async function({
     vendor,
     projectConfig,
     stats,
-    resolve
+    resolve,
+    bus
 }) {
+    const targets = bus.getTargetsOf('@magento/pwa-buildpack');
+
     let vendorTest = '[\\/]node_modules[\\/]';
 
     if (vendor.length > 0) {
@@ -68,6 +72,12 @@ module.exports = async function({
                                 envName: mode,
                                 rootMode: babelConfigPresent ? 'root' : 'upward'
                             }
+                        },
+                        {
+                            loader: 'wrap-esm-loader',
+                            options: targets.wrapEsModules
+                                .call(new WrapLoaderConfig())
+                                .toLoaderOptions()
                         }
                     ]
                 },
@@ -116,6 +126,14 @@ module.exports = async function({
             ]
         },
         resolve,
+        resolveLoader: {
+            modules: [
+                path.resolve(__dirname, '../WebpackTools/loaders'),
+                'node_modules'
+            ],
+            extensions: ['.js'],
+            mainFields: ['loader', 'main']
+        },
         plugins: [
             new RootComponentsPlugin({
                 rootComponentsDirs: [

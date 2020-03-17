@@ -143,7 +143,8 @@ async function configureWebpack(options) {
         hasFlag,
         projectConfig,
         resolve: magentoResolver.config,
-        stats
+        stats,
+        bus
     };
 
     const serviceWorkerConfig = getServiceWorkerConfig(configOptions);

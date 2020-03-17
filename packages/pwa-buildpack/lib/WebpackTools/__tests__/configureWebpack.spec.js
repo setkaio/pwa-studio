@@ -11,7 +11,7 @@ const path = require('path');
 const fs = require('fs');
 const stat = jest.spyOn(fs, 'stat');
 
-const { SyncHook } = require('tapable');
+const { SyncHook, SyncWaterfallHook } = require('tapable');
 const declareBase = require('../../BuildBus/declare-base');
 const pertain = require('pertain');
 const pkgDir = require('pkg-dir');
@@ -34,7 +34,9 @@ const envVarDefsHook = new SyncHook(['envVarDefs']);
 declareBase.mockImplementation(targets => {
     targets.declare({
         envVarDefinitions: envVarDefsHook,
-        specialFeatures: specialFeaturesHook
+        specialFeatures: specialFeaturesHook,
+        webpackCompiler: new SyncHook(['compiler']),
+        wrapEsModules: new SyncWaterfallHook(['blorf'])
     });
 });
 
