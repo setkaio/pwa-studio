@@ -4,6 +4,7 @@
 }
 
 .label {
+    color: rgb(var(--venia-global-color-gray-800));
     font-weight: var(--venia-global-text-fontWeight-semibold);
     padding: 0 2px;
 }
