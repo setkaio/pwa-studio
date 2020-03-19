@@ -1,18 +1,16 @@
-import React from "react"
+import React from 'react';
 
-import classes from "./Field.css"
+import classes from './Field.css';
 
 const Field = props => {
-    const { children, label } = props
+    const { children, label } = props;
 
     return (
         <div className={classes.root}>
-            <label className={classes.label}>
-                {label}
-            </label>
+            <label className={classes.label}>{label}</label>
             {children}
         </div>
-    )
-}
+    );
+};
 
-export default Field
+export default Field;
