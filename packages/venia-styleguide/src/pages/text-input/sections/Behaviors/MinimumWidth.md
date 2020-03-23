@@ -1,3 +1,0 @@
-#### Minimum width
-
-Lorem ipsum

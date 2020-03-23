@@ -15,7 +15,7 @@ import OptionsTable from "./OptionsTable"
 </Columns>
 <Columns reverse>
   <Before />
-  <Field label="Find products">
+  <Field label="Search">
     <TextInput before={<Search />} />
   </Field>
 </Columns>

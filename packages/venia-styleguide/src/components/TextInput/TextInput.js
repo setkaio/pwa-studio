@@ -10,6 +10,8 @@ const TextInput = props => {
 
     if (!isSelect) {
         inputProps.type = type;
+    } else {
+        console.log({ inputProps })
     }
 
     const inputElement = createElement(elementType, inputProps);

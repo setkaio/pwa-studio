@@ -43,10 +43,15 @@
     line-height: var(--venia-global-text-lineHeight-100);
 }
 
-:global input {
+:global input,
+:global select {
     color: rgb(var(--venia-global-color-gray-800));
     font-family: var(--venia-global-text-fontFamily-sansSerif);
     font-size: var(--venia-typography-body-M-fontSize);
+}
+
+:global select {
+    -webkit-appearance: none;
 }
 
 :global strong {
