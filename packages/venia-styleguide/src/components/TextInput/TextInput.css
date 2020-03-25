@@ -30,7 +30,7 @@
 .before,
 .after {
     align-items: center;
-    color: rgb(var(--venia-global-color-gray-500));
+    color: rgb(var(--stroke));
     display: flex;
     justify-content: center;
     margin: 0 2px;

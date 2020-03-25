@@ -24,5 +24,5 @@ Aenean ac dui a tellus venenatis accumsan.
   <Structure />
 </Section>
 
-export const title = "Select"
+export const title = "Select input"
 export default Article

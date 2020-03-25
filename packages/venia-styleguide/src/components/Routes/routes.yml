@@ -19,7 +19,7 @@ groups: !!pairs
     - group:
         label: "Inputs"
         items:
-        - "select"
+        - "select-input"
         - "text-input"
 
 pages: !!pairs
@@ -29,6 +29,6 @@ pages: !!pairs
 - color: "Color"
 - design-tokens: "Design tokens"
 - principles: "Principles"
-- select: "Select"
+- select-input: "Select input"
 - text-input: "Text input"
 - typography: "Typography"
