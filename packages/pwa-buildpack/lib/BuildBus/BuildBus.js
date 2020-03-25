@@ -79,9 +79,12 @@ class BuildBus extends Trackable {
         }
         this._hasRun[phase] = true;
         this.track('runPhase', { phase });
-        pertain(this.context, `pwa-studio.targets.${phase}`, foundDeps =>
-            foundDeps.concat(this._depsAdditional)
-        ).forEach(dep => {
+        const pertaining = pertain(
+            this.context,
+            `pwa-studio.targets.${phase}`,
+            foundDeps => foundDeps.concat(this._depsAdditional)
+        );
+        pertaining.forEach(dep => {
             let targetProvider = this.targetProviders.get(dep.name);
             if (!targetProvider) {
                 targetProvider = new TargetProvider(this, dep, extDep =>
