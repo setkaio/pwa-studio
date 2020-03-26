@@ -19,6 +19,7 @@ groups: !!pairs
     - group:
         label: "Inputs"
         items:
+        - "checkbox-input"
         - "radio-input"
         - "select-input"
         - "text-input"
@@ -27,6 +28,7 @@ pages: !!pairs
 - app-bar: "App bar"
 - button: "Button"
 - button-group: "Button group"
+- checkbox-input: "Checkbox input"
 - color: "Color"
 - design-tokens: "Design tokens"
 - principles: "Principles"
