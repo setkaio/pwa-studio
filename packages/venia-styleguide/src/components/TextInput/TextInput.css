@@ -1,5 +1,5 @@
 .root {
-    --stroke: var(--venia-global-color-gray-400);
+    --stroke: var(--venia-global-color-gray-600);
     display: inline-grid;
     grid-auto-flow: column;
     grid-template-areas: 'before input after';

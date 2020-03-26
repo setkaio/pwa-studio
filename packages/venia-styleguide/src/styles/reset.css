@@ -45,10 +45,10 @@
 
 :global input,
 :global select {
-    color: rgb(var(--venia-global-color-gray-700));
+    color: rgb(var(--venia-global-color-gray-900));
     font-family: var(--venia-global-text-fontFamily-sansSerif);
     font-size: var(--venia-typography-body-M-fontSize);
-    font-weight: var(--venia-global-text-fontWeight-semibold);
+    /* font-weight: var(--venia-global-text-fontWeight-semibold); */
 }
 
 :global select {
