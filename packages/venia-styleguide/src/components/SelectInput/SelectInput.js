@@ -1,14 +1,12 @@
-import React from "react"
-import { ChevronDown } from "react-feather"
+import React from 'react';
+import { ChevronDown } from 'react-feather';
 
-const CHEVRON = <ChevronDown />
+const CHEVRON = <ChevronDown />;
 
-import TextInput from "../TextInput"
+import TextInput from '../TextInput';
 
 const SelectInput = props => {
-    return (
-        <TextInput {...props} after={CHEVRON} type="select" />
-    )
-}
+    return <TextInput {...props} after={CHEVRON} type="select" />;
+};
 
-export default SelectInput
+export default SelectInput;
