@@ -14,11 +14,10 @@
 .input {
     -webkit-appearance: none;
     background: none;
-    border: 2px solid rgb(var(--stroke));
+    border: 2px solid transparent;
     border-radius: 2px;
     grid-area: input;
     height: 1.5rem;
-    opacity: 0;
     width: 1.5rem;
     z-index: 2;
 }
@@ -35,7 +34,7 @@
 }
 
 .input:focus {
-    --stroke: var(--venia-global-color-green-500);
+    box-shadow: -6px 6px rgb(var(--venia-brand-color-1-700) / 0.3);
     outline: none;
 }
 
@@ -47,8 +46,4 @@
 
 .input:checked + .icon {
     --stroke: var(--venia-brand-color-1-700);
-}
-
-.input:focus + .icon {
-    --stroke: var(--venia-global-color-green-500);
 }
