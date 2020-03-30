@@ -1,6 +1,7 @@
-import React, { Fragment, Suspense } from 'react';
+import React, { Fragment, Suspense, useEffect } from 'react';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 import { Form } from 'informed';
+import executeScripts from "../../util/executeScripts";
 
 import { Price } from '@magento/peregrine';
 import { useProductFullDetail } from '@magento/peregrine/lib/talons/ProductFullDetail/useProductFullDetail';
@@ -61,6 +62,10 @@ const ProductFullDetail = props => {
             currentProduct={productDetails.name}
         />
     ) : null;
+
+    useEffect(() =>
+        executeScripts(Array.from(document.querySelectorAll('#root script')))
+    );
 
     return (
         <Fragment>

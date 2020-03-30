@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import detectPageBuilder from './PageBuilder/detectPageBuilder';
 import PageBuilder from './PageBuilder';
 import { mergeClasses } from '../../classify';
 import defaultClasses from './richContent.css';
 import { shape, string } from 'prop-types';
+import executeScripts from "../../util/executeScripts";
 
 const toHTML = str => ({ __html: str });
 
@@ -23,6 +24,10 @@ const toHTML = str => ({ __html: str });
 const RichContent = props => {
     const { html } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
+
+    useEffect(() =>
+        executeScripts(Array.from(document.querySelectorAll('#root script')))
+    );
 
     if (detectPageBuilder(html)) {
         return (
